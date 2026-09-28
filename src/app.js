@@ -4,7 +4,7 @@ import { createAccount } from './onboarding.js';
 // Initialize Pendo with current auth state
 const auth = getAuthState();
 pendo.initialize({
-  visitor: auth ? auth.visitor : { id: '' },
+  visitor: auth ? auth.visitor : { id: '', role: '' },
   account: auth ? auth.account : {}
 });
 
