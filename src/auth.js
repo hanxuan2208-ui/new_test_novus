@@ -9,13 +9,13 @@ export function getAuthState() {
   }
 }
 
-export function login(email, password) {
+export function login(email, password, role) {
   const success = !!(email && password);
 
   if (success) {
     const accountDomain = email.split('@')[1] || 'default';
     const state = {
-      visitor: { id: email, email: email },
+      visitor: { id: email, email: email, role: role || 'member' },
       account: { id: 'acct-' + accountDomain, name: accountDomain }
     };
     localStorage.setItem(AUTH_KEY, JSON.stringify(state));
